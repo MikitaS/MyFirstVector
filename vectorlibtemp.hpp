@@ -67,17 +67,37 @@ Type vector<Type>::pop_back()
 	}
 }
 
+template <typename Type>
+Type & vector<Type>::top()
+{
+	return data_[counter_ - 1];
+}
+
 ///Operators:
 template <typename Type>
 vector<Type> & vector<Type>::operator = (const vector<Type> & other)
 {
 	capacity_ = other.capacity_;
 	counter_ = other.counter_;
+	
 	delete [] data_;
 	data_ = new Type[capacity_];
 	memcpy<Type>(data_, other.data_, counter_);
 	
 	return *this;
+}
+
+template <typename Type>
+Type & vector<Type>::operator [] (size_t number)
+{
+	if(number < counter_)
+	{
+		return data_[number];
+	}
+	else
+	{
+		return top();
+	}
 }
 
 ///Debug:
