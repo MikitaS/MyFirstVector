@@ -8,25 +8,27 @@ class vector
 {
 public:
 ///Constructors and destructor:
-	vector();//done
-	vector(const vector & other);
-	~vector();//done
+	vector();//tested
+	vector(const vector & other);//tested
+	~vector();//tested
 	
 ///Methods:
-	bool is_empty() const;//done
-	size_t size() const;//done
-	size_t capacity() const;//done
+	bool is_empty() const;//tested
+	size_t size() const;//tested
+	size_t capacity() const;//tested
 	
-	void push_back(Type object);//done
+	void push_back(Type object);//tested
+	Type pop_back();//tested
 	
 ///Operators:
+	vector & operator = (const vector & other);//tested
 	
 ///FOR DEBUG:
 template <typename type>
-friend std::ostream & operator << (std::ostream & os, const vector<type> & vec);//done
+friend std::ostream & operator << (std::ostream & os, const vector<type> & vec);
 
 private:
-	static const size_t INIT_VECTOR_CAPACITY_ = 50; 
+	const size_t INIT_VECTOR_CAPACITY_ = 50;
 
 	Type * data_;
 	size_t capacity_;

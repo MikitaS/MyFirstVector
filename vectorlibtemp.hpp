@@ -57,7 +57,28 @@ void vector<Type>::push_back(Type object)
 	return;
 }
 
+template <typename Type>
+Type vector<Type>::pop_back()
+{
+	if(counter_ == 0){}
+	else
+	{
+		return data_[--counter_];
+	}
+}
 
+///Operators:
+template <typename Type>
+vector<Type> & vector<Type>::operator = (const vector<Type> & other)
+{
+	capacity_ = other.capacity_;
+	counter_ = other.counter_;
+	delete [] data_;
+	data_ = new Type[capacity_];
+	memcpy<Type>(data_, other.data_, counter_);
+	
+	return *this;
+}
 
 ///Debug:
 template <typename Type>
