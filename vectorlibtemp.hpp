@@ -94,6 +94,22 @@ vector<Type> & vector<Type>::operator = (const vector<Type> & other)
 }
 
 template <typename Type>
+bool vector<Type>::operator == (const vector<Type> & other) const
+{
+	if(counter_ != other.counter_)
+	{
+		return false;
+	}
+	for(int i = 0; i < counter_; i++)
+	{
+		if(data_[i] != other.data_[i])
+			return false;
+	}
+	
+	return true;
+}
+
+template <typename Type>
 Type & vector<Type>::operator [] (size_t number)
 {
 	if(number < counter_)

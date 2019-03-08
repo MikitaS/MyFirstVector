@@ -82,6 +82,13 @@ public:
 	vector & operator = (const vector & other);
 	
 	/*!
+	 * compare two vectors
+	 * @param [in] other another vector
+	 * @return true if the vectors are equal
+	 */	
+	bool operator == (const vector & other) const;
+	
+	/*!
 	 * give access to the needed element
 	 * @param [in] number of needed element
 	 * @return link to needed element
