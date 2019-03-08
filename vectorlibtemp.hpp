@@ -122,6 +122,15 @@ Type & vector<Type>::operator [] (size_t number)
 	}
 }
 
+template <typename Type>
+vector<Type>::operator Type*()
+{
+	Type * pointer = new Type[ counter_ ];
+	memcpy<Type>(pointer, data_, counter_);
+	
+	return pointer;
+}
+
 ///Debug:
 template <typename Type>
 std::ostream & operator << (std::ostream & os, const vector<Type> & vec)
