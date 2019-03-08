@@ -73,6 +73,12 @@ Type & vector<Type>::top()
 	return data_[counter_ - 1];
 }
 
+template <typename Type>
+void vector<Type>::sort()
+{
+	qsort(data_, counter_, sizeof(Type), vectorelementcompare<Type>);
+}
+
 ///Operators:
 template <typename Type>
 vector<Type> & vector<Type>::operator = (const vector<Type> & other)

@@ -2,13 +2,14 @@
 
 #include "memory.hpp"
 #include <iostream>
+#include <cstdio>
 
 /*!
  * @brief Vector class
  * @details vector, realized on dynamic array 
  * @authors Mikita
- * @version 1.0
- * @date 6 March, 2019
+ * @version 2.0.0
+ * @date 8 March, 2019
  * @warning This class can't erase or add element if it not the last
  * @copyright MIT License
 */
@@ -67,6 +68,12 @@ public:
 	 */	
 	Type & top();
 	
+	/*!
+	 * sort data of vector
+	 * @note in case of users class, "operator > " MUST be defined 
+	 */
+	void sort();
+	
 //Operators:
 	/*!
 	 * make "this" copy of other
@@ -93,7 +100,15 @@ private:
 
 	Type * data_; ///array with data
 	size_t capacity_;///current max size of the vector
-	size_t counter_;///current amount of elements in vector 
+	size_t counter_;///current amount of elements in vector
+	
 };
+
+
+template <class Type>
+int vectorelementcompare(const void * a, const void * b)
+{
+	return *(Type*) a > *(Type*) b;
+} 
 
 #include "vectorlibtemp.hpp"

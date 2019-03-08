@@ -3,7 +3,12 @@
 
 using namespace std;
 
+int compareint(const void * a, const void * b);
 
+int compareint(const void * a, const void * b)
+{
+	return *(int*)a < *(int*)b;
+}
 
 int main()
 {
@@ -17,6 +22,8 @@ int main()
 	vec1[10] = 10;
 	vec1[20] = 40;
 	vec1[100] = 100;
+	
+	vec1.sort();
 	
 	vector<int> vec2;
 	vec2 = vec1;

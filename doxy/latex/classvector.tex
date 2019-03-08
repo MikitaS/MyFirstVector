@@ -1,0 +1,203 @@
+\hypertarget{classvector}{}\section{vector$<$ Type $>$ Class Template Reference}
+\label{classvector}\index{vector$<$ Type $>$@{vector$<$ Type $>$}}
+
+
+Vector class.  
+
+
+
+
+{\ttfamily \#include $<$vector.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvector_ab8d8ebaa9b91a05bb7a94371cb84c042}{vector} ()
+\item 
+\hyperlink{classvector_a10b4b80ca03a29381b4d75bd8f64a32b}{vector} (const \hyperlink{classvector}{vector} \&other)
+\item 
+bool \hyperlink{classvector_a5072f21798cab28caba5ce11a63641b9}{is\+\_\+empty} () const
+\item 
+size\+\_\+t \hyperlink{classvector_a93899e95a36d1f3a24cc0e97314d9846}{size} () const
+\item 
+size\+\_\+t \hyperlink{classvector_a328c8b698588cbe76e44fa358f94cc83}{capacity} () const
+\item 
+void \hyperlink{classvector_a7969701b971bcceeba65b2150ea4a1a4}{push\+\_\+back} (Type object)
+\item 
+Type \hyperlink{classvector_a33e617a81ec2561bd840b8090e38a083}{pop\+\_\+back} ()
+\item 
+Type \& \hyperlink{classvector_aa9f52560c183491e8741ce10d7c54451}{top} ()
+\item 
+void \hyperlink{classvector_a07b7c89f4914f1558409e81ca0fe4e72}{sort} ()
+\item 
+\hyperlink{classvector}{vector} \& \hyperlink{classvector_af24b0bef0a5a0b8a3d4a65f0ce959b5f}{operator=} (const \hyperlink{classvector}{vector} \&other)
+\item 
+Type \& \hyperlink{classvector_ad6b76f293f8827dd0b90bd982b04fd60}{operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t number)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvector_adf34cc222c696cfe23dfbc3d0a4895b2}\label{classvector_adf34cc222c696cfe23dfbc3d0a4895b2}} 
+{\footnotesize template$<$typename type $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classvector}{vector}$<$ type $>$ \&vec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Type$>$\newline
+class vector$<$ Type $>$}
+
+Vector class. 
+
+vector, realized on dynamic array \begin{DoxyAuthor}{Authors}
+Mikita 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+8 March, 2019 
+\end{DoxyDate}
+\begin{DoxyWarning}{Warning}
+This class can\textquotesingle{}t erase or add element if it not the last 
+\end{DoxyWarning}
+\begin{DoxyCopyright}{Copyright}
+M\+IT License 
+\end{DoxyCopyright}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvector_ab8d8ebaa9b91a05bb7a94371cb84c042}\label{classvector_ab8d8ebaa9b91a05bb7a94371cb84c042}} 
+\index{vector@{vector}!vector@{vector}}
+\index{vector@{vector}!vector@{vector}}
+\subsubsection{\texorpdfstring{vector()}{vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+\hyperlink{classvector}{vector}$<$ Type $>$\+::\hyperlink{classvector}{vector} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construct vector with init capacity \mbox{\Hypertarget{classvector_a10b4b80ca03a29381b4d75bd8f64a32b}\label{classvector_a10b4b80ca03a29381b4d75bd8f64a32b}} 
+\index{vector@{vector}!vector@{vector}}
+\index{vector@{vector}!vector@{vector}}
+\subsubsection{\texorpdfstring{vector()}{vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+\hyperlink{classvector}{vector}$<$ Type $>$\+::\hyperlink{classvector}{vector} (\begin{DoxyParamCaption}\item[{const \hyperlink{classvector}{vector}$<$ Type $>$ \&}]{other }\end{DoxyParamCaption})}
+
+make copy of other vector 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em other} & another vector \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classvector_a328c8b698588cbe76e44fa358f94cc83}\label{classvector_a328c8b698588cbe76e44fa358f94cc83}} 
+\index{vector@{vector}!capacity@{capacity}}
+\index{capacity@{capacity}!vector@{vector}}
+\subsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+size\+\_\+t \hyperlink{classvector}{vector}$<$ Type $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+current capacity of vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvector_a5072f21798cab28caba5ce11a63641b9}\label{classvector_a5072f21798cab28caba5ce11a63641b9}} 
+\index{vector@{vector}!is\+\_\+empty@{is\+\_\+empty}}
+\index{is\+\_\+empty@{is\+\_\+empty}!vector@{vector}}
+\subsubsection{\texorpdfstring{is\+\_\+empty()}{is\_empty()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+bool \hyperlink{classvector}{vector}$<$ Type $>$\+::is\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true if the vector is empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvector_af24b0bef0a5a0b8a3d4a65f0ce959b5f}\label{classvector_af24b0bef0a5a0b8a3d4a65f0ce959b5f}} 
+\index{vector@{vector}!operator=@{operator=}}
+\index{operator=@{operator=}!vector@{vector}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+\hyperlink{classvector}{vector}\& \hyperlink{classvector}{vector}$<$ Type $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classvector}{vector}$<$ Type $>$ \&}]{other }\end{DoxyParamCaption})}
+
+make \char`\"{}this\char`\"{} copy of other 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em other} & link to another object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvector_ad6b76f293f8827dd0b90bd982b04fd60}\label{classvector_ad6b76f293f8827dd0b90bd982b04fd60}} 
+\index{vector@{vector}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!vector@{vector}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+Type\& \hyperlink{classvector}{vector}$<$ Type $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{number }\end{DoxyParamCaption})}
+
+give access to the needed element 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em number} & of needed element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+link to needed element 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+IF T\+HE V\+E\+C\+T\+OR IS E\+M\+P\+TY U\+N\+D\+E\+F\+I\+N\+ED B\+E\+H\+A\+V\+I\+O\+UR 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classvector_a33e617a81ec2561bd840b8090e38a083}\label{classvector_a33e617a81ec2561bd840b8090e38a083}} 
+\index{vector@{vector}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!vector@{vector}}
+\subsubsection{\texorpdfstring{pop\+\_\+back()}{pop\_back()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+Type \hyperlink{classvector}{vector}$<$ Type $>$\+::pop\+\_\+back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+delete the last element \begin{DoxyReturn}{Returns}
+the last element 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+IF T\+HE V\+E\+C\+T\+OR IS E\+M\+P\+TY U\+N\+D\+E\+F\+I\+N\+ED B\+E\+H\+A\+V\+I\+O\+UR 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classvector_a7969701b971bcceeba65b2150ea4a1a4}\label{classvector_a7969701b971bcceeba65b2150ea4a1a4}} 
+\index{vector@{vector}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!vector@{vector}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+void \hyperlink{classvector}{vector}$<$ Type $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{Type}]{object }\end{DoxyParamCaption})}
+
+add new element in the end of vector 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em object} & smth you put in vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvector_a93899e95a36d1f3a24cc0e97314d9846}\label{classvector_a93899e95a36d1f3a24cc0e97314d9846}} 
+\index{vector@{vector}!size@{size}}
+\index{size@{size}!vector@{vector}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+size\+\_\+t \hyperlink{classvector}{vector}$<$ Type $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+current amount of elements in vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvector_a07b7c89f4914f1558409e81ca0fe4e72}\label{classvector_a07b7c89f4914f1558409e81ca0fe4e72}} 
+\index{vector@{vector}!sort@{sort}}
+\index{sort@{sort}!vector@{vector}}
+\subsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+void \hyperlink{classvector}{vector}$<$ Type $>$\+::sort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+sort data of vector \begin{DoxyNote}{Note}
+in case of users class, \char`\"{}operator $>$ \char`\"{} M\+U\+ST be defined 
+\end{DoxyNote}
+\mbox{\Hypertarget{classvector_aa9f52560c183491e8741ce10d7c54451}\label{classvector_aa9f52560c183491e8741ce10d7c54451}} 
+\index{vector@{vector}!top@{top}}
+\index{top@{top}!vector@{vector}}
+\subsubsection{\texorpdfstring{top()}{top()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+Type\& \hyperlink{classvector}{vector}$<$ Type $>$\+::top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+give access to the last element \begin{DoxyReturn}{Returns}
+link to the last element 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+IF T\+HE V\+E\+C\+T\+OR IS E\+M\+P\+TY U\+N\+D\+E\+F\+I\+N\+ED B\+E\+H\+A\+V\+I\+O\+UR 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vector.\+hpp\end{DoxyCompactItemize}
