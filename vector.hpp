@@ -11,7 +11,7 @@
  * @version 2.0.0
  * @date 8 March, 2019
  * @note in case of users class, "operator = " MUST be defined 
- * @warning This class can't erase or add element if it not the last
+ * @note This class can't erase or add element if it not the last
  * @copyright MIT License
 */
 template <typename Type>
@@ -29,6 +29,8 @@ public:
 	 * @param [in] other another vector
 	 */
 	vector(const vector & other);
+	
+	vector(const Type * arr, size_t size);
 	
 	~vector();
 	
@@ -102,7 +104,7 @@ public:
 	 * @return pointer to array, that is copy of data
 	 * @warning DON'T FORGET TO DELETE DATA AFTER USING POINTER
 	 */
-	operator Type*();
+	operator Type*() const;
 	
 //FOR DEBUG:
 template <typename type>

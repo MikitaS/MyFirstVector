@@ -17,6 +17,13 @@ vector<Type>::vector(const vector<Type> & other) :
 }
 
 template <typename Type>
+vector<Type>::vector( const Type * arr, size_t size) : data_(new Type[size * 2]), counter_(size), capacity_(size * 2)
+{
+	memcpy<Type>(data_, arr, size);
+}
+
+
+template <typename Type>
 vector<Type>::~vector()
 {
 	capacity_ = 0;
@@ -123,7 +130,7 @@ Type & vector<Type>::operator [] (size_t number)
 }
 
 template <typename Type>
-vector<Type>::operator Type*()
+vector<Type>::operator Type*() const
 {
 	Type * pointer = new Type[ counter_ ];
 	memcpy<Type>(pointer, data_, counter_);
