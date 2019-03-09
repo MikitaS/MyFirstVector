@@ -30,6 +30,11 @@ public:
 	 */
 	vector(const vector & other);
 	
+	/*!
+	 * create vector with given data
+	 * @param [in] arr pointer to data
+	 * @param [in] size size of data
+	 */
 	vector(const Type * arr, size_t size);
 	
 	~vector();
