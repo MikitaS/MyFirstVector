@@ -1,5 +1,9 @@
 #pragma once
 
+//&& для копирования 
+//
+//
+
 ///Constructors and destructor:
 template <typename Type>
 vector<Type>::vector() : 
@@ -14,6 +18,15 @@ vector<Type>::vector(const vector<Type> & other) :
 	counter_(other.counter_)
 {
 	memcpy<Type>(data_, other.data_, counter_);
+}
+
+template <typename Type>
+vector<Type>::vector(vector<Type> && other) : 
+	data_(new Type[INIT_VECTOR_CAPACITY_]), 
+	capacity_(INIT_VECTOR_CAPACITY_) , 
+	counter_(0)
+{
+	swap(*this, other);
 }
 
 template <typename Type>

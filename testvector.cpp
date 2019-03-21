@@ -24,6 +24,9 @@ int main()
 	
 	vector<int> vec2;
 	vec2 = vec3;
-	cout << vec2  << endl;
+	
+	vector<int> vec4(vec2);
+	
+	cout << vec4  << endl;
 	return 0;
 }

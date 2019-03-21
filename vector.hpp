@@ -30,6 +30,8 @@ public:
 	 */
 	vector(const vector & other);
 	
+	vector(vector && other);
+	
 	/*!
 	 * create vector with given data
 	 * @param [in] arr pointer to data
@@ -110,15 +112,18 @@ public:
 	 * @warning DON'T FORGET TO DELETE DATA AFTER USING POINTER
 	 */
 	operator Type*() const;
-	
-//FOR DEBUG:
+
+
+//Friends:
 template <typename type>
 friend std::ostream & operator << (std::ostream & os, const vector<type> & vec);
 
+template <class type>
+friend void swap(vector<type> & vec1, vector<type> & vec2);
 
 private:
 	///first initialization vector capacity
-	const size_t INIT_VECTOR_CAPACITY_ = 50;
+	static const size_t INIT_VECTOR_CAPACITY_ = 50;
 
 	Type * data_; ///array with data
 	size_t capacity_;///current max size of the vector
@@ -132,5 +137,21 @@ int vectorelementcompare(const void * a, const void * b)
 {
 	return *(Type*) a > *(Type*) b;
 } 
+
+template <class Type>
+void swap(vector<Type> & vec1, vector<Type> & vec2)
+{
+	Type * data = vec1.data_;
+	size_t capacity = vec1.capacity_;
+	size_t counter = vec1.counter_;
+	
+	vec1.data_ = vec2.data_;
+	vec1.capacity_ = vec2.capacity_;
+	vec1.counter_ = vec2.counter_;
+	
+	vec2.data_ = data;
+	vec2.capacity_ = capacity;
+	vec2.counter_ = counter;
+}
 
 #include "vectorlibtemp.hpp"
