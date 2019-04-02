@@ -1,9 +1,13 @@
 #include <iostream>
+#include <cstdio>
 #include "vector.hpp"
 
 using namespace std;
 
-int main()
+bool TestBitFunctions();
+bool FirstTestVector();
+
+bool FirstTestVector()
 {
 	vector<int> vec1;
 	for(int i = 0; i < 60; ++i)
@@ -22,11 +26,109 @@ int main()
 	vector<int> vec3(ptr, 60);
 	delete [] ptr;
 	
-	vector<int> vec2;
-	vec2 = vec3;
 	
-	vector<int> vec4(vec2);
+	if(vec3.capacity() < 60)
+	{
+		return false;
+	}
+	if(vec3.size() != 60)
+	{
+		return false;
+	}
 	
-	cout << vec4  << endl;
+	int i = 0;
+	
+	if(vec3[i] != 10)
+	{
+		return false;
+	}
+	
+	++i;
+	
+	if(vec3[i] != 40)
+	{
+		return false;
+	}
+	
+	i++;
+	
+	if(vec3[i] != 100)
+	{
+		return false;
+	}
+	
+	i++;
+	
+	for(; i < 60; ++i)
+	{
+		if(vec3[i] != 112)
+		{
+			return false;
+		}
+	}
+
+	return true;
+
+}
+
+bool TestBitFunctions()
+{
+	int data1 = 0;
+	bool bit = 0;
+	
+	for(int i = 1; i < (8 * sizeof(int) - 1); ++i)
+	{
+		if(i % 2)
+		{
+			bit = 1;
+		}
+		else
+		{
+			bit = 0;
+		}
+		
+		OneBitToInt(&data1, bit, i);
+		if(OneBitFromInt(data1, i) != bit)
+		{
+			return false;
+		}  
+	}
+	
+		for(int i = 1; i < (8 * sizeof(int) - 1); ++i)
+	{
+		if(i % 2)
+		{
+			bit = 1;
+		}
+		else
+		{
+			bit = 0;
+		}
+		if(OneBitFromInt(data1, i) != bit)
+		{
+			return false;
+		}  
+	}
+	return true;
+}
+
+int main()
+{
+	cout << "_____________________________________________" << endl;
+	cout << "VECTOR LIBRARY TEST STARTES" << endl << endl << endl;
+	
+	if(FirstTestVector())
+		cout << "+ first test vector passed correctly" << endl;
+	else
+		cout << "- first test vector passed failed" << endl;
+
+	
+	if(TestBitFunctions())
+		cout << "+ bit data functions work correctly" << endl;
+	else
+		cout << "- bit data function's test failed" << endl;
+		
+	cout << endl << endl << "VECTOR LIBRARY TEST FINISHED" << endl;
+	cout << "_____________________________________________" << endl;
 	return 0;
 }

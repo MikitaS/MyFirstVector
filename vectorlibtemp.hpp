@@ -1,8 +1,5 @@
 #pragma once
 
-//&& для копирования 
-//
-//
 
 ///Constructors and destructor:
 template <typename Type>

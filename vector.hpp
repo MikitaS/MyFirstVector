@@ -155,3 +155,4 @@ void swap(vector<Type> & vec1, vector<Type> & vec2)
 }
 
 #include "vectorlibtemp.hpp"
+#include "boolvector.hpp"
