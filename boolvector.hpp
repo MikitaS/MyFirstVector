@@ -17,7 +17,7 @@ private:
 bool OneBitFromInt(int integer, unsigned int position);
 void OneBitToInt(int * integer, bool bit, unsigned int position);
 
-bool OneBitFromInt(int integer, unsigned int position)//tested, works correctly
+bool OneBitFromInt(int integer, unsigned int position)
 {
 	//std::cout << integer << std::endl;
 	int result = (integer >> (position - 1)); 
@@ -29,7 +29,7 @@ bool OneBitFromInt(int integer, unsigned int position)//tested, works correctly
 		return false;
 }
 
-void OneBitToInt(int * integer, bool bit, unsigned int position)//written, NOT TESTED
+void OneBitToInt(int * integer, bool bit, unsigned int position)
 {
 	int copy = *integer;
 	int intbit = (int)bit;
