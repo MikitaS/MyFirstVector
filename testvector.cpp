@@ -6,6 +6,7 @@ using namespace std;
 
 bool TestBitFunctions();
 bool FirstTestVector();
+bool TestBoolVector();
 
 bool FirstTestVector()
 {
@@ -112,6 +113,32 @@ bool TestBitFunctions()
 	return true;
 }
 
+bool TestBoolVector()
+{
+	vector<bool> bector;
+	vector<bool> bector2 = bector;
+	
+	
+	if(!bector.capacity())
+	{
+		return false;
+	}
+	
+	if(bector.size())
+	{
+		return false;
+	}
+	
+	if(!bector.is_empty())
+	{
+		return false;
+	}
+	
+	
+	
+	return true;
+}
+
 int main()
 {
 	cout << "_____________________________________________" << endl;
@@ -127,6 +154,11 @@ int main()
 		cout << "+ bit data functions work correctly" << endl;
 	else
 		cout << "- bit data function's test failed" << endl;
+		
+	if(TestBoolVector())
+		cout << "+ bool test vector passed correctly" << endl;
+	else
+		cout << "- bool data function's test failed" << endl;
 		
 	cout << endl << endl << "VECTOR LIBRARY TEST FINISHED" << endl;
 	cout << "_____________________________________________" << endl;
