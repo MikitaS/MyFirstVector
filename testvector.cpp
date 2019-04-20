@@ -2,6 +2,8 @@
 #include <cstdio>
 #include "vector.hpp"
 
+#define AMOUNT_OF_BOOL_TEST_ITERATIONS_CONST 100
+
 using namespace std;
 
 bool TestBitFunctions();
@@ -136,6 +138,19 @@ bool TestBoolVector()
 	
 	
 	
+	for(int i = 0; i < AMOUNT_OF_BOOL_TEST_ITERATIONS_CONST; ++i)
+	{
+		bector.push_back(i % 2);
+	}
+	
+	SUPER_DEBUG_BOOL_VECTOR_MODE bector.dump();
+
+	for(int i = AMOUNT_OF_BOOL_TEST_ITERATIONS_CONST; i > 0; --i)
+	{
+		if(bector.pop_back() != (i % 2))
+			return false;
+	}
+	
 	return true;
 }
 
@@ -149,12 +164,12 @@ int main()
 	else
 		cout << "- first test vector passed failed" << endl;
 
-	
+
 	if(TestBitFunctions())
 		cout << "+ bit data functions work correctly" << endl;
 	else
 		cout << "- bit data function's test failed" << endl;
-		
+
 	if(TestBoolVector())
 		cout << "+ bool test vector passed correctly" << endl;
 	else

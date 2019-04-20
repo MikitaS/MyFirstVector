@@ -1,5 +1,7 @@
 #pragma once
 
+#define SUPER_DEBUG_BOOL_VECTOR_MODE if(false)
+
 //Bit functions:
 bool OneBitFromInt(int integer, unsigned int position);
 void OneBitToInt(int * integer, bool bit, unsigned int position);
@@ -17,7 +19,10 @@ public:
 	bool is_empty() const;
 	size_t size() const ;
 	size_t capacity() const;
+	void dump() const;
+	
 	void push_back(bool object);
+	bool pop_back();
 	
 //Operators:
 	
@@ -66,7 +71,8 @@ bool vector<bool>::is_empty() const
 
 void vector<bool>::push_back(bool object)
 {
-	if((int)(counter_ / (8 * sizeof(int))) + 1 >= capacity_)
+	
+	if((counter_ / (8 * sizeof(int))) + 1 >= capacity_)
 	{
 		capacity_ *= 2;
 		this->data_ = resize<int>(data_, counter_, capacity_);
@@ -82,12 +88,46 @@ void vector<bool>::push_back(bool object)
 	return;
 }
 
+bool vector<bool>::pop_back()
+{
+	if(counter_ == 0)
+	{
+		return false;
+	}
+	
+	unsigned int position = counter_ % (8 * sizeof(int));
+	unsigned int number = counter_ / (8 * sizeof(int));
+	
+	--counter_;
+	
+	return OneBitFromInt(data_[number], position + 1);
+	
+}
+
+void vector<bool>::dump() const
+{
+	std::cout << "capacity " << capacity_ << std::endl;
+	std::cout << "counter " << counter_ << std::endl;
+	
+	for(int i = 0; i < counter_; ++i)
+	{
+		std::cout << OneBitFromInt(data_[(int) (i / (8 * sizeof(int)) )], (int) (i % (8 * sizeof(int)) + 1));
+		SUPER_DEBUG_BOOL_VECTOR_MODE std::cout << "\t" << (int) (i / (8 * sizeof(int)) ) << "\t" << (int) (i % (8 * sizeof(int)) + 1) << std::endl;
+	}
+	std::cout << std::endl;
+	
+	for(int i = 0; i < 1 + counter_ /(8 * sizeof(int)); ++i)
+	{
+		std::cout << data_[(int) (i / (8 * sizeof(int)) )] << std::endl;
+	} 
+}
+
 //Bit Functions:
 
 bool OneBitFromInt(int integer, unsigned int position)
 {
 	int result = (integer >> (position - 1)); 
-
+	
 	if(result % 2)
 		return true;
 	else 
@@ -96,14 +136,17 @@ bool OneBitFromInt(int integer, unsigned int position)
 
 void OneBitToInt(int * integer, bool bit, unsigned int position)
 {
+	
 	int copy = *integer;
 	
 	if(OneBitFromInt(copy, position))
 	{
+		
 		*integer = (copy & ((int)bit << (position - 1)));
 	}
 	else
 	{
+		
 		*integer = (copy | ((int)bit << (position - 1)));
 	}
 } 
