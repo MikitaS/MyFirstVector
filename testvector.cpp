@@ -2,7 +2,7 @@
 #include <cstdio>
 #include "vector.hpp"
 
-#define AMOUNT_OF_BOOL_TEST_ITERATIONS_CONST 100
+#define AMOUNT_OF_BOOL_TEST_ITERATIONS_CONST 1000000
 
 using namespace std;
 
@@ -141,6 +141,7 @@ bool TestBoolVector()
 	for(int i = 0; i < AMOUNT_OF_BOOL_TEST_ITERATIONS_CONST; ++i)
 	{
 		bector.push_back(i % 2);
+		SUPER_DEBUG_BOOL_VECTOR_MODE cout << i << "\t" << bector.capacity() << "\t" << bector.size() << endl;
 	}
 	
 	SUPER_DEBUG_BOOL_VECTOR_MODE bector.dump();

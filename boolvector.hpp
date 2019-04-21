@@ -35,9 +35,17 @@ private:
 };
 
 vector<bool>::vector() : 
-	data_(new int[INIT_VECTOR_CAPACITY_]), 
+	//data_(new int[INIT_VECTOR_CAPACITY_]), 
 	capacity_(INIT_VECTOR_CAPACITY_), 
-	counter_(0) {}
+	counter_(0) 
+{
+	data_ = new int[INIT_VECTOR_CAPACITY_];
+	
+	for(int i = 0; i < capacity_; ++i)
+	{
+		data_[i] = 0;
+	}
+}
 	
 vector<bool>::vector(const vector<bool> & other) : 
 	data_(new int[other.capacity_]),
@@ -72,10 +80,10 @@ bool vector<bool>::is_empty() const
 void vector<bool>::push_back(bool object)
 {
 	
-	if((counter_ / (8 * sizeof(int))) + 1 >= capacity_)
+	if((counter_ / (8 * sizeof(int)) + 2) >= capacity_)
 	{
 		capacity_ *= 2;
-		this->data_ = resize<int>(data_, counter_, capacity_);
+		this->data_ = resize<int>(data_, counter_ / (8 * sizeof(int)) + 1, capacity_);
 	}
 	
 	unsigned int position = counter_ % (8 * sizeof(int));
